@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Projekt Modal - Popup</title>
+  <style>
+    .article {
+      width: 70%;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .article.blur {
+      filter: blur(2px);
+    }
+
+    img {
+      padding: 50px 0;
+      width: 100%;
+    }
+
+    .modal-wrap {
+      display: none;
+    }
+
+    .modal-wrap.active {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, .5);
+    }
+
+    .modal-wrap.active .modal {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      height: 70%;
+      border: 2px solid black;
+    }
+
+    @media (max-width: 800px) {
+      .modal-wrap.active .modal {
+        width: 90%;
+        height: 90%;
+      }
+    }
+
+    .modal .top {
+      flex-basis: 15%;
+      background-color: cadetblue;
+    }
+
+    .modal .middle {
+      flex-grow: 1;
+      background-color: #ccc;
+    }
+
+    .modal .bottom {
+      flex-basis: 15%;
+      background-color: cadetblue;
+    }
+
+    span {
+      font-family: arial;
+      font-size: 30px;
+      background-color: #fff;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      border-radius: 50%;
+      transform: translate(50%, -50%);
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="article">
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam in aliquid laborum nihil dolores, quam sequi
+      facilis veritatis eius, recusandae unde? Cum, libero soluta? Laborum necessitatibus et placeat perspiciatis
+      nulla?</p>
+    <button>Kup teraz</button>
+    <img src="image640.jpg" alt="">
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi praesentium, quo labore eius asperiores
+      aliquid
+      temporibus nemo nam quisquam? Nam commodi beatae vero exercitationem neque placeat laborum, perspiciatis libero
+      quae?</p>
+  </section>
+  <section class="modal-wrap">
+    <div class="modal">
+      <div class="top"></div>
+      <div class="middle"></div>
+      <div class="bottom"></div>
+      <span class="hide">X</span>
+    </div>
+  </section>
+
+
+  <script src="jquery-3.3.1.min.js"></script>
+  <script>
+    document.querySelector('.article button').addEventListener('click', function () {
+      document.querySelector('.modal-wrap').classList.add('active');
+      document.querySelector('.article').classList.add('blur');
+    })
+
+    document.querySelector('span.hide').addEventListener('click', function () {
+      document.querySelector('.modal-wrap').classList.remove('active');
+      document.querySelector('.article').classList.remove('blur');
+    })
+  </script>
+</body>
+
+</html>
