@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Powiększ</title>
+    <style>
+        button {
+            padding: 10px;
+            font-size: 50px;
+            font-family: sans-serif;
+            background-color: transparent;
+            border: 2px solid black;
+        }
+
+        .square {
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+            position: fixed;
+            top: calc(50% - 50px);
+            left: calc(50% - 50px);
+        }
+
+        .animation {
+            transition: .5s;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button>Obróć</button>
+    <div class="square"></div>
+
+    <script>
+        // parametry główne. Za pomocą zmiennych stwórz początkową wartość rotate (zero) i wartość o którą będziesz zmieniał stopnie (o 10 stopni).
+        let rotateDiv = 0;
+        const changeDiv = 10;
+
+        // pobieramy elementy - pobierz przycisk i div
+        const btn = document.querySelector('button');
+        const square = document.querySelector('.square');
+
+        // podpinamy nasłuchiwanie i umeiszczamy w nim funkcje anonimową. Pamiętaj zmieniamy własciwość transform. Za każdym razem obrót zwiększa się o 10 deg. 
+
+        btn.addEventListener('click', function () {
+            rotateDiv += changeDiv;
+            // console.log("obrót:", rotateDiv);
+            square.style.transform = "rotate(" + rotateDiv + 'deg)';
+            //Dodajemy transition .5s za pomocą JS
+            // square.style.transition = .5 + 's';
+            square.classList.add('animation');
+        })
+    </script>
+</body>
+
+</html>
