@@ -1,0 +1,34 @@
+body {
+    min-height: 150vh;
+}
+
+nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 300px;
+    background-color: #000;
+    bottom: -270px;
+    transition: .3s linear;
+}
+
+nav.on {
+    bottom: 0;
+}
+
+.arrow {
+    font-size: 30px;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    transition: .3s linear;
+}
+
+.arrow:hover {
+    cursor: pointer;
+}
+
+.arrow.on {
+    bottom: 310px;
+    transform: rotate(180deg);
+}
